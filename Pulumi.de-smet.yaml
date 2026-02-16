@@ -1,0 +1,48 @@
+environment:
+  - scaleway/de-smet
+config:
+  scaleway-root-dns:zone: de-smet.name
+  scaleway-root-dns:mx:
+    de-smet-name-mx-1:
+      name: ""
+      ttl: 86400
+      priority: 10
+      data: "ASPMX.L.GOOGLE.COM."
+    de-smet-name-mx-2:
+      name: ""
+      ttl: 86400
+      priority: 20
+      data: "ALT1.ASPMX.L.GOOGLE.COM."
+    de-smet-name-mx-3:
+      name: ""
+      ttl: 86400
+      priority: 20
+      data: "ALT2.ASPMX.L.GOOGLE.COM."
+    de-smet-name-mx-4:
+      name: ""
+      ttl: 86400
+      priority: 50
+      data: "ASPMX2.GOOGLEMAIL.COM."
+    de-smet-name-mx-5:
+      name: ""
+      ttl: 86400
+      priority: 50
+      data: "ASPMX3.GOOGLEMAIL.COM."
+  scaleway-root-dns:txt:
+    de-smet-name-spf:
+      name: ""
+      ttl: 86400
+      data: "v=spf1 include:_spf.google.com ~all"
+    de-smet-name-dkim:
+      name: "google._domainkey"
+      ttl: 86400
+      data: "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSsmcXSk+L8uB6x/uvsdll0PLwdZiDHi4p8ymDJGzqVmUxCemaAySUNoqBozJloJxprAR7NVzHm7AOYH1mJff1DKLuVPz2wUC7S/aVub4+8nlhiK85eWhkeXK4QnFg7213yTn6LaMLCGKgsiKREKrHNH960s3NC2Z/VtPN3xqBRQIDAQAB"
+    ringo-de-smet-name-bluesky-handle-alias:
+      name: "_atproto.ringo"
+      ttl: 86400
+      data: "did=did:plc:gd6zeudzfzopwybtgttz4rq2"
+  scaleway-root-dns:cname:
+    ringo-de-smet-name-blog-alias:
+      name: "ringo"
+      ttl: 86400
+      data: "cname.vercel-dns.com."
