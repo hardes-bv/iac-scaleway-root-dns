@@ -1,0 +1,39 @@
+environment:
+  - scaleway/atriso
+config:
+  scaleway-root-dns:zone: atriso.be
+  scaleway-root-dns:mx:
+    atriso-be-name-mx-1:
+      name: ""
+      ttl: 1200
+      priority: 10
+      data: "mx.zoho.eu."
+    atriso-be-name-mx-2:
+      name: ""
+      ttl: 1200
+      priority: 20
+      data: "mx2.zoho.eu."
+    atriso-be-name-mx-3:
+      name: ""
+      ttl: 1200
+      priority: 50
+      data: "mx3.zoho.eu."
+  scaleway-root-dns:txt:
+    atriso-be-spf:
+      name: ""
+      ttl: 1200
+      data: "v=spf1 include:zohomail.eu ~all"
+    atriso-be-zoho-dkim:
+      name: "zmail._domainkey"
+      ttl: 1200
+      data: "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCsbo3hVMAj5ADwF9TPhCG7HowMgncnyzwshLtMeCBoBjLTmi76NPbevWOU3PouelXtde8low5LIvlJV8gloXxa9zCByXRRc1puV3HUl1uVgiuapV0E4ml6N6wKtZsBlCvpbUDtou/uAzIQlnNlXzFpbwbKZ/3LMLrzyhwX1epyDQIDAQAB"
+    atriso-be-name-dmarc:
+      name: "_dmarc"
+      ttl: 1200
+      data: "v=DMARC1; p=none;"
+    atriso-be-zoho-eu-validation:
+      name: ""
+      ttl: 1200
+      data: "zoho-verification=zb76213014.zmverify.zoho.eu"
+  scaleway-root-dns:zones:
+    - "home"

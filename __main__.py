@@ -1,5 +1,4 @@
-from os import confstr_names
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 import pulumi
 import pulumiverse_scaleway as scw
@@ -21,3 +20,36 @@ cnameRecords: Dict[str, Any] = config.get_object("cname", {})
 for name, data in cnameRecords.items():
     args = scw.domain.RecordArgs(dns_zone=dns_zone, type="CNAME", **data)
     scw.domain.Record(name, args)
+
+zones: List[str] = config.get_object("zones", [])
+for zone in zones:
+    subdomain = scw.domain.Zone(
+        zone,
+        scw.domain.ZoneArgs(
+            domain=dns_zone,
+            subdomain=zone,
+        ),
+    )
+
+    args = scw.domain.RecordArgs(
+        name=zone,
+        dns_zone=dns_zone,
+        type="NS",
+        data="ns0.dom.scw.cloud."
+    )
+    scw.domain.Record(
+        f"{zone}-ns-1",
+        args,
+        opts=pulumi.ResourceOptions(
+            depends_on=[subdomain],
+        )
+    )
+
+    args.data = "ns1.dom.scw.cloud."
+    scw.domain.Record(
+        f"{zone}-ns-2",
+        args,
+        opts=pulumi.ResourceOptions(
+            depends_on=[subdomain],
+        )
+    )
