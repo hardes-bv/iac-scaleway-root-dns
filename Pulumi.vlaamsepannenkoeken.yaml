@@ -1,0 +1,47 @@
+environment:
+  - scaleway/vlaamsepannenkoeken
+config:
+  scaleway-root-dns:zone: vlaamsepannenkoeken.be
+  scaleway-root-dns:mx:
+    mx-1:
+      name: ""
+      ttl: 120
+      priority: 1
+      data: "aspmx.l.google.com."
+    mx-2:
+      name: ""
+      ttl: 120
+      priority: 5
+      data: "alt1.aspmx.l.google.com."
+    mx-3:
+      name: ""
+      ttl: 120
+      priority: 5
+      data: "alt2.aspmx.l.google.com."
+    mx-4:
+      name: ""
+      ttl: 120
+      priority: 10
+      data: "alt3.aspmx.l.google.com."
+    mx-5:
+      name: ""
+      ttl: 120
+      priority: 10
+      data: "alt4.aspmx.l.google.com."
+  scaleway-root-dns:txt:
+    spf:
+      name: ""
+      ttl: 120
+      data: "v=spf1 include:_spf.google.com ~all"
+    dkim:
+      name: "google._domainkey"
+      ttl: 120
+      data: "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn1Eumq5L3X++r5P8ElJgHT596TjBmn43VEM8dDeirJrq6ZxYLcC+tOX+ovVOngGcqIIe6Way+jyT4R3sg2QXpRR/IFjdEXnRoEp/mOEo1IZarPhNYVhN55ETZnpqF+t+R3MBHzZdx6dhqB81oUjNmt2RG0pFJ2R61JTZ8HQ53ePkYIsRkPg1OiC5XhPZmxKe8heZx5T5BQ1eltQEUTlnR/sXtfe6bYYbNfWqNDqCOvEmEUc2CkI+L2/YbbNR57phrYL0qF24FOteBFhjkhjMPwdmyEWGG3WKtmQ6jc+g/qmq6QU1n+PFmFE/eBdt40WmCwCYnwGv3fgsbl8bQWEpyQIDAQAB"
+    scaleway-challenge:
+      name: "_scaleway-challenge"
+      ttl: 120
+      data: "144b5e3e-8914-4eae-8d55-c46924c043a9"
+    google-site-verification:
+      name: ""
+      ttl: 120
+      data: "google-site-verification=kFNblVUoWtvsdEA3_noy8BtG3HwEEjXygCtQgeSdjvQ"
