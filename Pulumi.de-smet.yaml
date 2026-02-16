@@ -44,5 +44,5 @@ config:
   scaleway-root-dns:cname:
     ringo-de-smet-name-blog-alias:
       name: "ringo"
-      ttl: 86400
+      ttl: 120
       data: "cname.vercel-dns.com."
