@@ -1,0 +1,43 @@
+environment:
+  - scaleway/hardes
+config:
+  scaleway-root-dns:zone: hardes.be
+  scaleway-root-dns:mx:
+    hardes-be-name-mx-1:
+      name: ""
+      ttl: 60
+      priority: 10
+      data: "mx.zoho.eu."
+    hardes-be-name-mx-2:
+      name: ""
+      ttl: 60
+      priority: 20
+      data: "mx2.zoho.eu."
+    hardes-be-name-mx-3:
+      name: ""
+      ttl: 60
+      priority: 50
+      data: "mx3.zoho.eu."
+  scaleway-root-dns:txt:
+    hardes-be-name-spf:
+      name: ""
+      ttl: 60
+      data: "v=spf1 include:zohomail.eu ~all"
+    hardes-be-zoho-dkim:
+      name: "zmail._domainkey"
+      ttl: 60
+      data: "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZfe369KOSGOtguDIb/7PdfYus1zHGIPRf5TzSlhABRqj4rC6qwVoaGjl+LzggfeyPBCwk7jGaaisKiLl8SyeDUCxkkA+s6680ZvX322RSf++D2q9MGMF/Q5Y3+hhBPBPQZtfPs6DjdCtEn11+N/98k7rUVfyvEEVPmNnykgqvPwIDAQAB"
+    hardes-be-name-dmarc:
+      name: "_dmarc"
+      ttl: 60
+      data: "v=DMARC1; p=none;"
+    hardes-be-zoho-eu-validation:
+      name: ""
+      ttl: 60
+      data: "zoho-verification=zb48074629.zmverify.zoho.eu"
+    hardes-be-jetbrains-validation:
+      name: ""
+      ttl: 60
+      data: "jetbrains-domain-verification=4ubgpqwvlt9h7fn4ao9s4qn1m"
+  scaleway-root-dns:zones:
+    - "home"
