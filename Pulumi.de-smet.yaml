@@ -41,8 +41,3 @@ config:
       name: "_atproto.ringo"
       ttl: 86400
       data: "did=did:plc:gd6zeudzfzopwybtgttz4rq2"
-  scaleway-root-dns:cname:
-    ringo-de-smet-name-blog-alias:
-      name: "ringo"
-      ttl: 120
-      data: "cname.vercel-dns.com."
