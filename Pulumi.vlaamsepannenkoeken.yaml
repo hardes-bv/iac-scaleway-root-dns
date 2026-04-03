@@ -40,7 +40,7 @@ config:
     scaleway-challenge:
       name: "_scaleway-challenge"
       ttl: 120
-      data: "144b5e3e-8914-4eae-8d55-c46924c043a9"
+      data: "fc6effe1-5c54-4f7a-aa09-58991594b3cc"
     google-site-verification:
       name: ""
       ttl: 120
