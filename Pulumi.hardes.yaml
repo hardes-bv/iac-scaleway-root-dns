@@ -39,5 +39,3 @@ config:
       name: ""
       ttl: 60
       data: "jetbrains-domain-verification=4ubgpqwvlt9h7fn4ao9s4qn1m"
-  scaleway-root-dns:zones:
-    - "home"
