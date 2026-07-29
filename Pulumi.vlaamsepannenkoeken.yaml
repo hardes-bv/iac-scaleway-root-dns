@@ -1,8 +1,8 @@
 environment:
   - scaleway/vlaamsepannenkoeken
 config:
-  scaleway-root-dns:zone: vlaamsepannenkoeken.be
-  scaleway-root-dns:mx:
+  iac-scaleway-root-dns:zone: vlaamsepannenkoeken.be
+  iac-scaleway-root-dns:mx:
     mx-1:
       name: ""
       ttl: 120
@@ -28,7 +28,7 @@ config:
       ttl: 120
       priority: 10
       data: "alt4.aspmx.l.google.com."
-  scaleway-root-dns:txt:
+  iac-scaleway-root-dns:txt:
     spf:
       name: ""
       ttl: 120
