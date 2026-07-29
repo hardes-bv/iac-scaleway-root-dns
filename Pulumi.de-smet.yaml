@@ -1,8 +1,8 @@
 environment:
   - scaleway/de-smet
 config:
-  scaleway-root-dns:zone: de-smet.name
-  scaleway-root-dns:mx:
+  iac-scaleway-root-dns:zone: de-smet.name
+  iac-scaleway-root-dns:mx:
     de-smet-name-mx-1:
       name: ""
       ttl: 86400
@@ -28,7 +28,7 @@ config:
       ttl: 86400
       priority: 50
       data: "ASPMX3.GOOGLEMAIL.COM."
-  scaleway-root-dns:txt:
+  iac-scaleway-root-dns:txt:
     de-smet-name-spf:
       name: ""
       ttl: 86400

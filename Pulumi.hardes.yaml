@@ -1,8 +1,8 @@
 environment:
   - scaleway/hardes
 config:
-  scaleway-root-dns:zone: hardes.be
-  scaleway-root-dns:mx:
+  iac-scaleway-root-dns:zone: hardes.be
+  iac-scaleway-root-dns:mx:
     hardes-be-name-mx-1:
       name: ""
       ttl: 60
@@ -18,7 +18,7 @@ config:
       ttl: 60
       priority: 50
       data: "mx3.zoho.eu."
-  scaleway-root-dns:txt:
+  iac-scaleway-root-dns:txt:
     hardes-be-name-spf:
       name: ""
       ttl: 60

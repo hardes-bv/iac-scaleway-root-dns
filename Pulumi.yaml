@@ -1,4 +1,4 @@
-name: scaleway-root-dns
+name: iac-scaleway-root-dns
 description: Manage Root DNS entries per domain
 runtime:
   name: python

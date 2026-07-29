@@ -1,8 +1,8 @@
 environment:
   - scaleway/atriso
 config:
-  scaleway-root-dns:zone: atriso.be
-  scaleway-root-dns:mx:
+  iac-scaleway-root-dns:zone: atriso.be
+  iac-scaleway-root-dns:mx:
     atriso-be-name-mx-1:
       name: ""
       ttl: 1200
@@ -18,7 +18,7 @@ config:
       ttl: 1200
       priority: 50
       data: "mx3.zoho.eu."
-  scaleway-root-dns:txt:
+  iac-scaleway-root-dns:txt:
     atriso-be-spf:
       name: ""
       ttl: 1200
@@ -35,5 +35,5 @@ config:
       name: ""
       ttl: 1200
       data: "zoho-verification=zb76213014.zmverify.zoho.eu"
-  scaleway-root-dns:zones:
+  iac-scaleway-root-dns:zones:
     - "home"
