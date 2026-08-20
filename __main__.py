@@ -21,6 +21,11 @@ for name, data in cnameRecords.items():
     args = scw.domain.RecordArgs(dns_zone=dns_zone, type="CNAME", **data)
     scw.domain.Record(name, args)
 
+srvRecords: Dict[str, Any] = config.get_object("srv", {})
+for name, data in srvRecords.items():
+    args = scw.domain.RecordArgs(dns_zone=dns_zone, type="SRV", **data)
+    scw.domain.Record(name, args)
+
 zones: List[str] = config.get_object("zones", [])
 for zone in zones:
     subdomain = scw.domain.Zone(
