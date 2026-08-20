@@ -5,35 +5,63 @@ config:
   iac-scaleway-root-dns:mx:
     atriso-be-name-mx-1:
       name: ""
-      ttl: 1200
+      ttl: 300
       priority: 10
-      data: "mx.zoho.eu."
-    atriso-be-name-mx-2:
-      name: ""
-      ttl: 1200
-      priority: 20
-      data: "mx2.zoho.eu."
-    atriso-be-name-mx-3:
-      name: ""
-      ttl: 1200
-      priority: 50
-      data: "mx3.zoho.eu."
+      data: "smtp.mailbox.scw.eu."
+  iac-scaleway-root-dns:cname:
+    atriso-be-autoconfig:
+      name: "autoconfig"
+      ttl: 300
+      data: "autoconfig.mailbox.scw.eu."
+    atriso-be-autodiscover:
+      name: "autodiscover"
+      ttl: 300
+      data: "autodiscover.mailbox.scw.eu."
+  iac-scaleway-root-dns:srv:
+    atriso-be-imap:
+      name: "_imaps._tcp"
+      ttl: 300
+      data: "0 1 993 imap.mailbox.scw.eu."
+    atriso-be-pop3:
+      name: "_pop3s._tcp"
+      ttl: 300
+      data: "0 1 995 pop3.mailbox.scw.eu."
+    atriso-be-submission:
+      name: "_submissions._tcp"
+      ttl: 300
+      data: "0 1 465 smtp.mailbox.scw.eu."
+    atriso-be-caldav:
+      name: "_caldavs._tcp"
+      ttl: 300
+      data: "0 1 443 caldav.mailbox.scw.eu."
+    atriso-be-carddav:
+      name: "_carddavs._tcp"
+      ttl: 300
+      data: "0 1 443 carddav.mailbox.scw.eu."
   iac-scaleway-root-dns:txt:
     atriso-be-spf:
       name: ""
-      ttl: 1200
-      data: "v=spf1 include:zohomail.eu ~all"
+      ttl: 200
+      data: "v=spf1 include:zohomail.eu include:spf.mailbox.scw.eu -all"
     atriso-be-zoho-dkim:
       name: "zmail._domainkey"
-      ttl: 1200
+      ttl: 200
       data: "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCsbo3hVMAj5ADwF9TPhCG7HowMgncnyzwshLtMeCBoBjLTmi76NPbevWOU3PouelXtde8low5LIvlJV8gloXxa9zCByXRRc1puV3HUl1uVgiuapV0E4ml6N6wKtZsBlCvpbUDtou/uAzIQlnNlXzFpbwbKZ/3LMLrzyhwX1epyDQIDAQAB"
+    atriso-be-scaleway-dkim:
+      name: "scw-mbox._domainkey"
+      ttl: 200
+      data: "v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxDzoc4vNPxmzwGHdPHBVKKiesWnnAqwzh/kl2je5LS8VolAgljykT1qN0Tc/G1FoKyDBUHPEhDxw9xglgZ6B86pFIpE/hMxhSrmmplNl+XZxLErbiaP6IOVVSNJr3Z8Rq8Atc2Cg1yrkH2CZr8bKDlT14ETiSMM8uPYaAf0tmGkpC5DmEJIWCgOaSUIOvLRp4FTzjIDxMGnZ0tvYHgb2VqWN+Cs8rrRwDRkw7hnaKPBLpEzGt3KHaUrhCZuB8kF6XBbwgY/JBFYgxp/kWOoDDS9e7rjd0tQrrngfq1nOcnCWQ+7RJuqY/bk1EYZ76OPgzZGIpYkZbcYI1wuEtRxMHQIDAQAB"
     atriso-be-name-dmarc:
       name: "_dmarc"
-      ttl: 1200
+      ttl: 200
       data: "v=DMARC1; p=none;"
     atriso-be-zoho-eu-validation:
       name: ""
-      ttl: 1200
+      ttl: 200
       data: "zoho-verification=zb76213014.zmverify.zoho.eu"
+    atriso-be-scaleway-validation:
+      name: ""
+      ttl: 200
+      data: "scaleway-mailbox=a020e77d-ad5b-4133-8eba-b0da9540a4f3"
   iac-scaleway-root-dns:zones:
     - "home"
